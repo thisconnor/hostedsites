@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FF6B47">
+<title>Connor's Hosted Sites</title>
+<meta name="description" content="A little corner of the web — projects, pages, and experiments, each in its own room.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FBF7F0;
+    --bg-2: #F4EADA;
+    --card: #FFFFFF;
+    --ink: #241A14;
+    --ink-soft: #6B5848;
+    --coral: #FF6B47;
+    --coral-deep: #E94560;
+    --line: rgba(36, 26, 20, 0.08);
+    --shadow: rgba(36, 26, 20, 0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
+  }
+
+  .wrap { max-width: 780px; margin: 0 auto; }
+
+  /* ===== HEADER ===== */
+  header { padding: 72px 4px 40px; }
+
+  .eyebrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--coral);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(38px, 9vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+
+  .lede {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    max-width: 50ch;
+  }
+
+  /* ===== SITE GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+
+  .site {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px 22px 20px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .site::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--coral), #FF8C42, var(--coral-deep));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+
+  .site:hover,
+  .site:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px var(--shadow);
+    border-color: rgba(255, 107, 71, 0.45);
+    outline: none;
+  }
+
+  .site:hover::before,
+  .site:focus-visible::before { transform: scaleX(1); }
+
+  .site-emoji { font-size: 32px; margin-bottom: 12px; }
+
+  .site-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .site-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    flex: 1;
+    margin-bottom: 18px;
+  }
+
+  .site-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: rgba(36, 26, 20, 0.05);
+    padding: 4px 11px;
+    border-radius: 999px;
+  }
+
+  .go {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--coral);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap .18s ease;
+  }
+
+  .site:hover .go,
+  .site:focus-visible .go { gap: 9px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+    padding: 28px 4px 64px;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+
+  footer code {
+    background: rgba(36, 26, 20, 0.06);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 12.5px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">— a little corner of the web —</p>
+    <h1>Connor's Hosted Sites</h1>
+    <p class="lede">Projects, pages, and experiments, all in one place. Each one lives in its own room.</p>
+  </header>
+
+  <main class="grid">
+
+    <!-- ===== SITE CARD TEMPLATE — copy this block to add a new site =====
+    <a class="site" href="FOLDER-NAME/">
+      <span class="site-emoji">EMOJI</span>
+      <span class="site-title">TITLE</span>
+      <span class="site-desc">A one-line description of the site.</span>
+      <span class="site-foot">
+        <span class="tag">TAG</span>
+        <span class="go">Visit &rarr;</span>
+      </span>
+    </a>
+    ==================================================================== -->
+
+    <a class="site" href="oc-day/">
+      <span class="site-emoji">🌅</span>
+      <span class="site-title">Thursday in OC</span>
+      <span class="site-desc">A family day in Orange County for Dani &amp; Mike — sushi, sea cliffs, and a suspiciously magical boba shop.</span>
+      <span class="site-foot">
+        <span class="tag">Itinerary</span>
+        <span class="go">Visit &rarr;</span>
+      </span>
+    </a>
+
+  </main>
+
+  <footer>
+    Add a new site by dropping its files in a folder and copying a card above. Served by GitHub Pages at <code>thisconnor.github.io/hostedsites</code>.
+  </footer>
+
+</div>
+</body>
+</html>

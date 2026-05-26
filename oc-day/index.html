@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FF6B47">
+<title>Thursday in OC · Dani & Mike</title>
+<meta name="description" content="A family day in Orange County. May 28, 2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --sand: #FFF4E0;
+    --sand-deep: #FBE7C6;
+    --coral: #FF6B47;
+    --sunset: #FF8C42;
+    --pink: #FF8FA3;
+    --hot-pink: #E94560;
+    --lavender: #B8A5D9;
+    --teal: #2EC4B6;
+    --teal-deep: #006D77;
+    --navy: #1D3557;
+    --cream: #FFFBF2;
+    --ink: #2A1A0F;
+    --ink-soft: #5C4435;
+    --shadow: rgba(45, 26, 15, 0.12);
+    --shadow-strong: rgba(45, 26, 15, 0.22);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ===== GRAIN OVERLAY ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    background: linear-gradient(180deg,
+      #2D1B69 0%,
+      #6B2D8A 18%,
+      #C73E5F 38%,
+      #FF6B47 58%,
+      #FFB347 78%,
+      #FDD9A0 92%,
+      var(--sand) 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 24px 80px;
+  }
+
+  /* stars */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+    animation: twinkle 3s infinite ease-in-out;
+  }
+  .star:nth-child(1) { top: 8%; left: 15%; animation-delay: 0s; }
+  .star:nth-child(2) { top: 5%; left: 70%; animation-delay: 0.5s; }
+  .star:nth-child(3) { top: 12%; left: 45%; animation-delay: 1s; width: 3px; height: 3px; }
+  .star:nth-child(4) { top: 6%; left: 85%; animation-delay: 1.5s; }
+  .star:nth-child(5) { top: 14%; left: 25%; animation-delay: 2s; }
+  .star:nth-child(6) { top: 9%; left: 90%; animation-delay: 0.8s; width: 3px; height: 3px; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* sun */
+  .sun {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFE5B4 0%, #FFAA40 40%, #FF6B30 100%);
+    box-shadow:
+      0 0 60px rgba(255, 170, 64, 0.6),
+      0 0 120px rgba(255, 107, 48, 0.4),
+      0 0 200px rgba(231, 62, 95, 0.3);
+    animation: sunBob 6s ease-in-out infinite;
+  }
+
+  .sun::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 229, 180, 0.3);
+    animation: sunPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes sunBob {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -54%); }
+  }
+
+  @keyframes sunPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.15); opacity: 0.1; }
+  }
+
+  /* horizon ocean */
+  .ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 38%;
+    background:
+      linear-gradient(180deg,
+        transparent 0%,
+        rgba(46, 196, 182, 0.15) 30%,
+        rgba(0, 109, 119, 0.4) 70%,
+        rgba(29, 53, 87, 0.6) 100%);
+  }
+
+  .wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 12px;
+    opacity: 0.5;
+  }
+  .wave-1 { bottom: 30%; background: repeating-linear-gradient(90deg, transparent 0 8px, rgba(255,229,180,0.6) 8px 12px, transparent 12px 24px); animation: waveSlide 8s linear infinite; }
+  .wave-2 { bottom: 22%; background: repeating-linear-gradient(90deg, transparent 0 12px, rgba(255,143,163,0.5) 12px 16px, transparent 16px 32px); animation: waveSlide 12s linear infinite reverse; }
+  .wave-3 { bottom: 14%; background: repeating-linear-gradient(90deg, transparent 0 6px, rgba(255,255,255,0.4) 6px 10px, transparent 10px 20px); animation: waveSlide 6s linear infinite; }
+
+  @keyframes waveSlide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-24px); }
+  }
+
+  /* palm trees */
+  .palm {
+    position: absolute;
+    bottom: 0;
+    transform-origin: bottom center;
+    z-index: 2;
+  }
+  .palm svg { display: block; }
+  .palm-left { left: -10px; bottom: 0; width: 110px; animation: palmSway 5s ease-in-out infinite; }
+  .palm-right { right: -20px; bottom: 0; width: 140px; animation: palmSway 6s ease-in-out infinite reverse; }
+
+  @keyframes palmSway {
+    0%, 100% { transform: rotate(-1.5deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+
+  /* sand dune at bottom */
+  .dune {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--sand);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: scaleX(1.5);
+    z-index: 1;
+  }
+
+  /* hero text */
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    color: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    animation: fadeUp 1s ease-out 0.2s both;
+  }
+
+  .hero-title {
+    font-family: 'Caprasimo', serif;
+    font-size: clamp(56px, 16vw, 96px);
+    line-height: 0.9;
+    color: var(--cream);
+    text-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+    animation: fadeUp 1s ease-out 0.4s both;
+  }
+
+  .hero-title span {
+    display: block;
+    color: #FFE5B4;
+    font-size: 0.5em;
+    letter-spacing: 0.02em;
+    margin-top: 8px;
+    text-shadow: 0 2px 12px rgba(231, 62, 95, 0.5);
+  }
+
+  .hero-sub {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.95;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    animation: fadeUp 1s ease-out 0.6s both;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-date {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px 18px;
+    background: rgba(255, 251, 242, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 251, 242, 0.3);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: fadeUp 1s ease-out 0.8s both;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .scroll-cue::after {
+    content: '↓';
+    display: block;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+  }
+
+  /* ===== OVERVIEW STRIP ===== */
+  .overview {
+    background: var(--sand);
+    padding: 48px 24px 32px;
+    text-align: center;
+    position: relative;
+  }
+
+  .overview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .stat {
+    padding: 16px 8px;
+    background: var(--cream);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .stat-num {
+    font-family: 'Caprasimo', serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--coral);
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ===== TIMELINE SECTION ===== */
+  .timeline-section {
+    background: var(--sand);
+    padding: 32px 0 64px;
+    position: relative;
+  }
+
+  .section-head {
+    text-align: center;
+    padding: 0 24px 32px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--coral);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Caprasimo', serif;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--navy);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* timeline spine */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 44px;
+    top: 32px;
+    bottom: 32px;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--coral) 0 6px,
+      transparent 6px 12px
+    );
+    z-index: 1;
+  }
+
+  .stop {
+    position: relative;
+    padding-left: 64px;
+    margin-bottom: 28px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .stop.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* timeline dot */
+  .stop-dot {
+    position: absolute;
+    left: 32px;
+    top: 26px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--coral);
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--sand), 0 2px 8px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .stop:hover .stop-dot,
+  .stop.active .stop-dot {
+    background: var(--coral);
+    transform: scale(1.15);
+  }
+
+  /* card */
+  .card {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 24px 20px 20px;
+    box-shadow: 0 4px 24px var(--shadow), 0 1px 2px var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--coral), var(--sunset), var(--pink));
+  }
+
+  .stop-time {
+    display: inline-block;
+    font-family: 'Caprasimo', serif;
+    font-size: 22px;
+    color: var(--coral);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .stop-duration {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--sand-deep);
+    padding: 3px 10px;
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+
+  .stop-emoji {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  .stop-name {
+    font-family: 'Caprasimo', serif;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--navy);
+    margin: 6px 0 8px;
+  }
+
+  .stop-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .stop-desc {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .stop-desc strong {
+    color: var(--hot-pink);
+    font-weight: 700;
+  }
+
+  /* meta info chips */
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--sand-deep);
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .chip.hot { background: #FFE5DC; color: var(--hot-pink); }
+  .chip.cool { background: #D8F3F0; color: var(--teal-deep); }
+  .chip.warn { background: #FFF0B8; color: #8B6914; }
+
+  /* action buttons */
+  .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 14px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--cream);
+  }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-call {
+    background: var(--hot-pink);
+    color: var(--cream);
+    box-shadow: 0 4px 14px rgba(233, 69, 96, 0.35);
+  }
+  .btn-call:active { transform: scale(0.97); }
+
+  .btn-secondary {
+    background: var(--sand-deep);
+    color: var(--ink);
+  }
+  .btn-secondary:active { transform: scale(0.97); }
+
+  /* segmented control for alternatives */
+  .alt-switcher {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--sand-deep);
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .alt-btn {
+    flex: 1;
+    padding: 9px 8px;
+    border: none;
+    background: transparent;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+  }
+
+  .alt-btn.active {
+    background: var(--cream);
+    color: var(--coral);
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+
+  /* swappable panel content */
+  .alt-panel {
+    display: none;
+    animation: panelIn 0.35s ease;
+  }
+  .alt-panel.active {
+    display: block;
+  }
+
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* veg picks list */
+  .veg-picks {
+    background: var(--sand);
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .veg-picks strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 6px;
+  }
+
+  /* tip card / heads-up */
+  .tip {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #FFF8E1, #FFEACC);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--sunset);
+  }
+  .tip strong { color: var(--coral); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%);
+    padding: 56px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background:
+      radial-gradient(circle at 20% 100%, var(--sand) 0 30px, transparent 31px),
+      radial-gradient(circle at 60% 100%, var(--sand) 0 30px, transparent 31px),
+      radial-gradient(circle at 100% 100%, var(--sand) 0 30px, transparent 31px);
+  }
+
+  .footer-emoji {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .footer-title {
+    font-family: 'Caprasimo', serif;
+    font-size: 32px;
+    color: var(--coral);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .footer-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 320px;
+    margin: 0 auto 20px;
+  }
+
+  .footer-sig {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+  .footer-sig span {
+    color: var(--coral);
+  }
+
+  /* ===== SCROLL-LINKED SUN ===== */
+  .day-tracker {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 200px;
+    background: rgba(255, 107, 71, 0.15);
+    border-radius: 99px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .day-tracker.show { opacity: 1; }
+
+  .day-tracker-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #FFE5B4, var(--coral), var(--hot-pink));
+    border-radius: 99px;
+    height: 0;
+    transition: height 0.2s ease;
+  }
+
+  .day-tracker-sun {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFE5B4, #FF8C42);
+    box-shadow: 0 0 12px rgba(255, 140, 66, 0.6);
+    transform: translate(-50%, -50%);
+    top: 0;
+    transition: top 0.2s ease;
+  }
+
+  /* ===== RESPONSIVE TWEAKS ===== */
+  @media (min-width: 600px) {
+    .hero-title { font-size: 110px; }
+    .section-title { font-size: 56px; }
+    .timeline { padding: 0 32px; }
+    .stop { padding-left: 80px; }
+    .timeline::before { left: 52px; }
+    .stop-dot { left: 40px; }
+    .card { padding: 28px 24px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+
+  <div class="sun"></div>
+
+  <div class="ocean"></div>
+  <div class="wave wave-1"></div>
+  <div class="wave wave-2"></div>
+  <div class="wave wave-3"></div>
+
+  <div class="palm palm-left">
+    <svg viewBox="0 0 110 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M55 200 Q52 140 55 80 Q58 60 55 40" stroke="#3D2817" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M55 50 Q20 30 5 10 Q25 25 55 45" fill="#1F4D3F"/>
+      <path d="M55 45 Q30 20 50 0 Q55 25 58 45" fill="#2D6450"/>
+      <path d="M55 45 Q90 25 105 5 Q85 25 60 50" fill="#1F4D3F"/>
+      <path d="M58 45 Q80 35 95 50 Q70 50 60 55" fill="#2D6450"/>
+      <path d="M55 50 Q40 60 15 65 Q40 55 55 55" fill="#1F4D3F"/>
+      <circle cx="50" cy="55" r="3" fill="#8B4513"/>
+      <circle cx="58" cy="56" r="3" fill="#8B4513"/>
+      <circle cx="54" cy="60" r="3" fill="#8B4513"/>
+    </svg>
+  </div>
+
+  <div class="palm palm-right">
+    <svg viewBox="0 0 140 240" xmlns="http://www.w3.org/2000/svg">
+      <path d="M75 240 Q70 170 75 100 Q80 70 73 45" stroke="#3D2817" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M73 55 Q35 35 15 10 Q40 30 75 50" fill="#1F4D3F"/>
+      <path d="M73 50 Q45 20 65 0 Q73 25 78 50" fill="#2D6450"/>
+      <path d="M75 50 Q115 30 135 5 Q105 30 78 55" fill="#1F4D3F"/>
+      <path d="M78 50 Q105 40 125 60 Q90 55 78 60" fill="#2D6450"/>
+      <path d="M73 55 Q55 70 20 75 Q50 60 73 60" fill="#1F4D3F"/>
+      <circle cx="68" cy="60" r="4" fill="#8B4513"/>
+      <circle cx="78" cy="62" r="4" fill="#8B4513"/>
+      <circle cx="72" cy="68" r="4" fill="#8B4513"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">A family day in</p>
+    <h1 class="hero-title">Orange<br><span>County</span></h1>
+    <p class="hero-sub">Sushi, sea cliffs, and one suspiciously magical boba shop. Built for Aunt Dani &amp; Uncle Mike.</p>
+    <div class="hero-date">Thursday · May 28 · 2026</div>
+  </div>
+
+  <div class="dune"></div>
+  <div class="scroll-cue">The Day</div>
+</header>
+
+<!-- ====== OVERVIEW ====== -->
+<section class="overview">
+  <div class="overview-stats">
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Stops</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10h</div>
+      <div class="stat-label">10am–8pm</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">~80</div>
+      <div class="stat-label">Min driving</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TIMELINE ====== -->
+<section class="timeline-section">
+  <div class="section-head">
+    <p class="section-eyebrow">— the itinerary —</p>
+    <h2 class="section-title">The Plan</h2>
+  </div>
+
+  <div class="timeline">
+
+    <!-- STOP 1: MUSEUM -->
+    <div class="stop" data-stop="1">
+      <div class="stop-dot">✈️</div>
+      <article class="card">
+        <span class="stop-time">10:00 AM</span>
+        <span class="stop-duration">~1h 45m</span>
+        <h3 class="stop-name">Morning Museum</h3>
+        <p class="stop-tagline">Pick your flavor of history</p>
+
+        <div class="alt-switcher" role="tablist" data-group="museum">
+          <button class="alt-btn active" data-target="lyon">✈️ Lyon Air</button>
+          <button class="alt-btn" data-target="bowers">🏺 Bowers</button>
+        </div>
+
+        <div class="alt-panel active" data-panel="lyon">
+          <p class="stop-desc"><strong>Lyon Air Museum</strong> · Santa Ana. WWII planes, vintage cars, military vehicles. Small but excellent — docents are friendly, and the second-floor model display is a hidden gem.</p>
+          <div class="meta">
+            <span class="chip">10 AM – 4 PM</span>
+            <span class="chip cool">~1h visit</span>
+            <span class="chip warn">$14 adults · $7 kids</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://maps.apple.com/?address=19300+Ike+Jones+Rd,+Santa+Ana,+CA+92707" target="_blank" rel="noopener">📍 Open in Maps</a>
+            <a class="btn btn-secondary" href="tel:+17142104585">📞 (714) 210-4585</a>
+          </div>
+        </div>
+
+        <div class="alt-panel" data-panel="bowers">
+          <p class="stop-desc"><strong>Bowers Museum</strong> · Santa Ana. Cultural &amp; art museum with rotating exhibitions plus a beautiful permanent collection (Chinese, Polynesian, Californian). The Terracotta Warriors show was a hit.</p>
+          <div class="meta">
+            <span class="chip">10 AM – 4 PM</span>
+            <span class="chip cool">~2h visit</span>
+            <span class="chip">4.7★ · 2,178 reviews</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://maps.apple.com/?address=2002+N+Main+St,+Santa+Ana,+CA+92706" target="_blank" rel="noopener">📍 Open in Maps</a>
+            <a class="btn btn-secondary" href="tel:+17145673600">📞 (714) 567-3600</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- STOP 2: LUNCH -->
+    <div class="stop" data-stop="2">
+      <div class="stop-dot">🍣</div>
+      <article class="card">
+        <span class="stop-time">12:15 PM</span>
+        <span class="stop-duration">~1h 45m</span>
+        <h3 class="stop-name">AYCE Sushi Lunch</h3>
+        <p class="stop-tagline">Tomikawa · Irvine</p>
+
+        <p class="stop-desc">Veggie-friendly all-you-can-eat sushi. Weekday lunch pricing is <strong>$28.95</strong> (vs $32.95 regular) — arrive by 1 PM to lock it in. 1.5 hr time limit, everyone at the table on the same menu.</p>
+
+        <div class="veg-picks">
+          <strong>🥬 Vegetarian Picks</strong>
+          Agedashi tofu · Seaweed salad · Garlic chili edamame · Vegetable roll · Shishito peppers · Cucumber salad · Furikake fries · Crispy rice
+        </div>
+
+        <div class="meta">
+          <span class="chip">11:30 AM – 10 PM</span>
+          <span class="chip warn">1.5 hr time limit</span>
+          <span class="chip">4.2★ · 1,114 reviews</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-call" href="tel:+19497869888">📞 CALL AHEAD · (949) 786-9888</a>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.apple.com/?address=14191+Jeffrey+Rd,+Irvine,+CA+92620" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+
+        <div class="tip">
+          <strong>Tip:</strong> Lines move fast but Thursday lunch can still wait 20+ min. Worth calling ahead to see if they'll hold a table.
+        </div>
+      </article>
+    </div>
+
+    <!-- STOP 3: CRYSTAL COVE -->
+    <div class="stop" data-stop="3">
+      <div class="stop-dot">🌊</div>
+      <article class="card">
+        <span class="stop-time">2:45 PM</span>
+        <span class="stop-duration">~2h 30m</span>
+        <h3 class="stop-name">Crystal Cove</h3>
+        <p class="stop-tagline">The Pacific Coast they don't get back home</p>
+
+        <p class="stop-desc">Dramatic Newport Coast bluffs, tide pools, and a row of original <strong>1930s beach cottages</strong> in the Historic District. Park at Pelican Point or Los Trancos and walk down to the sand.</p>
+
+        <div class="meta">
+          <span class="chip">Open dawn–dusk</span>
+          <span class="chip cool">Free or paid parking</span>
+          <span class="chip warn">Pack a light jacket</span>
+          <span class="chip">4.8★ · 7,260 reviews</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.apple.com/?address=Crystal+Cove+State+Park,+Newport+Coast,+CA" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="btn btn-secondary" href="https://www.crystalcovestatepark.org/" target="_blank" rel="noopener">🌐 Park Info</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- STOP 4: DINNER -->
+    <div class="stop" data-stop="4">
+      <div class="stop-dot">🌱</div>
+      <article class="card">
+        <span class="stop-time">5:30 PM</span>
+        <span class="stop-duration">~1h 15m</span>
+        <h3 class="stop-name">Early Vegan Dinner</h3>
+        <p class="stop-tagline">Three flavors, all close to Elixir</p>
+
+        <div class="alt-switcher" role="tablist" data-group="dinner">
+          <button class="alt-btn active" data-target="seabirds">🐦 Seabirds</button>
+          <button class="alt-btn" data-target="zamorano">🌮 Zamorano</button>
+          <button class="alt-btn" data-target="truefood">🥗 True Food</button>
+        </div>
+
+        <div class="alt-panel active" data-panel="seabirds">
+          <p class="stop-desc"><strong>Seabirds Kitchen</strong> · Costa Mesa. Modern vegan diner — beet burger, nachos, biscuit bombs. Crowd-pleaser and broadest appeal of the three.</p>
+          <div class="meta">
+            <span class="chip">11 AM – 9 PM</span>
+            <span class="chip cool">Fully vegan</span>
+            <span class="chip">4.7★ · 1,031 reviews</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://maps.apple.com/?address=2930+Bristol+St,+Costa+Mesa,+CA+92626" target="_blank" rel="noopener">📍 Open in Maps</a>
+            <a class="btn btn-secondary" href="tel:+17145492584">📞 (714) 549-2584</a>
+          </div>
+        </div>
+
+        <div class="alt-panel" data-panel="zamorano">
+          <p class="stop-desc"><strong>Vegan By El Zamorano</strong> · Costa Mesa. The wildcard. Authentic plant-based Mexican — soyrizo nachos, cashew cheese quesadillas, cauliflower ceviche, plant-based al pastor. <strong>Wisconsin doesn't have this.</strong></p>
+          <div class="meta">
+            <span class="chip">2 PM – 8 PM Thu</span>
+            <span class="chip cool">Fully vegan Mexican</span>
+            <span class="chip">4.5★ · 452 reviews</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://maps.apple.com/?address=3011+Harbor+Blvd,+Costa+Mesa,+CA+92626" target="_blank" rel="noopener">📍 Open in Maps</a>
+            <a class="btn btn-secondary" href="tel:+16572475200">📞 (657) 247-5200</a>
+          </div>
+        </div>
+
+        <div class="alt-panel" data-panel="truefood">
+          <p class="stop-desc"><strong>True Food Kitchen</strong> · Fashion Island. Health-forward bowls, butternut squash pizza, ancient grains bowl. Indoor &amp; outdoor seating, fanciest of the three.</p>
+          <div class="meta">
+            <span class="chip">11 AM – 9 PM</span>
+            <span class="chip cool">Veg-friendly</span>
+            <span class="chip">4.3★ · 1,507 reviews</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://maps.apple.com/?address=451+Newport+Center+Dr,+Newport+Beach,+CA+92660" target="_blank" rel="noopener">📍 Open in Maps</a>
+            <a class="btn btn-secondary" href="tel:+19496442400">📞 (949) 644-2400</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- STOP 5: ELIXIR -->
+    <div class="stop" data-stop="5">
+      <div class="stop-dot">🔮</div>
+      <article class="card">
+        <span class="stop-time">7:00 PM</span>
+        <span class="stop-duration">~45m</span>
+        <h3 class="stop-name">Magic Boba Cap</h3>
+        <p class="stop-tagline">Elixir Wizard Academy · Costa Mesa</p>
+
+        <p class="stop-desc">Harry Potter / D&amp;D themed boba bar &amp; ice cream. Order <em>The Prophecy</em> or <em>Princess Buttercup</em> ice cream. Quick stop to cap the night before bedtime.</p>
+
+        <div class="meta">
+          <span class="chip">Opens 6 PM Thu</span>
+          <span class="chip warn">Hidden entrance</span>
+          <span class="chip">4.5★ · 298 reviews</span>
+        </div>
+
+        <div class="tip">
+          <strong>How to find it:</strong> 2nd floor — take the stairs in the Lovers building. There's no signage outside. You're not lost, I promise.
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.apple.com/?address=1779+Newport+Blvd,+Costa+Mesa,+CA+92627" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-wave"></div>
+  <span class="footer-emoji">🌅</span>
+  <h2 class="footer-title">See you Thursday</h2>
+  <p class="footer-text">Can't wait to show you around. Bring sunglasses, a light layer for Crystal Cove, and an appetite.</p>
+  <p class="footer-sig">Made with <span>♥</span> by Connor · Newport Beach, CA</p>
+</footer>
+
+<!-- ====== DAY TRACKER ====== -->
+<div class="day-tracker" id="dayTracker">
+  <div class="day-tracker-fill" id="dayTrackerFill"></div>
+  <div class="day-tracker-sun" id="dayTrackerSun"></div>
+</div>
+
+<script>
+  // ===== Alternative switcher (museum + dinner) =====
+  document.querySelectorAll('.alt-switcher').forEach(switcher => {
+    const buttons = switcher.querySelectorAll('.alt-btn');
+    const card = switcher.closest('.card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        card.querySelectorAll('.alt-panel').forEach(panel => {
+          panel.classList.toggle('active', panel.dataset.panel === target);
+        });
+      });
+    });
+  });
+
+  // ===== Reveal stops on scroll =====
+  const stops = document.querySelectorAll('.stop');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+  stops.forEach(stop => observer.observe(stop));
+
+  // ===== Day-tracker scroll sun =====
+  const tracker = document.getElementById('dayTracker');
+  const trackerFill = document.getElementById('dayTrackerFill');
+  const trackerSun = document.getElementById('dayTrackerSun');
+  const timeline = document.querySelector('.timeline-section');
+
+  function updateTracker() {
+    const rect = timeline.getBoundingClientRect();
+    const viewportH = window.innerHeight;
+    const sectionTop = rect.top;
+    const sectionHeight = rect.height;
+
+    // show only when timeline is in view
+    if (sectionTop < viewportH * 0.5 && sectionTop + sectionHeight > viewportH * 0.2) {
+      tracker.classList.add('show');
+    } else {
+      tracker.classList.remove('show');
+    }
+
+    // calc progress through timeline
+    const scrolled = Math.max(0, viewportH * 0.5 - sectionTop);
+    const progress = Math.min(1, Math.max(0, scrolled / (sectionHeight - viewportH * 0.5)));
+    trackerFill.style.height = (progress * 100) + '%';
+    trackerSun.style.top = (progress * 100) + '%';
+  }
+
+  window.addEventListener('scroll', updateTracker, { passive: true });
+  window.addEventListener('resize', updateTracker);
+  updateTracker();
+
+  // ===== Active stop highlight =====
+  const stopObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  stops.forEach(stop => stopObserver.observe(stop));
+</script>
+
+</body>
+</html>
