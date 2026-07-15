@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Working palette (SPEC.md §5.10) — placeholder hex values; Mia's final
+   picks replace these variables and nothing else changes. */
+:root {
+  --color-pool: #0e5a8a; /* deep water blue */
+  --color-aqua: #37c3e0; /* bright aqua */
+  --color-coral: #ff7059; /* warm summer accent */
+  --color-sand: #faf6ef; /* airy neutral */
+  --color-ink: #16303f;
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-ink);
+}
